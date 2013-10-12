@@ -1,0 +1,1 @@
+Just some functional operations that I wanted to implement in a single repo.
