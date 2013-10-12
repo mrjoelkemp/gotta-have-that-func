@@ -60,5 +60,18 @@
     });
   };
 
+  func.find = function (list, iterator) {
+    var found = false,
+        result;
+
+    list.forEach(function (val) {
+      if (! found && (found = iterator(val))) {
+        result = val;
+      }
+    });
+
+    return result;
+  };
+
 
 })();

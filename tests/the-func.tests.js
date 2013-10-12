@@ -27,3 +27,9 @@ describe('zip', function () {
     expect(func.zip(['moe', 'larry', 'curly'], [30, 40, 50], [true, false, false])).toEqual([['moe', 30, true], ['larry', 40, false], ['curly', 50, false]]);
   });
 });
+
+describe('find', function() {
+  it('Looks through each value in the list, returning the first one that passes a truth test (iterator), or undefined if no value passes the test', function () {
+    expect(func.find([1, 2, 3, 4, 5, 6], function(num){ return num % 2 === 0; })).toBe(2);
+  });
+});
