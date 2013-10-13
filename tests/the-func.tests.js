@@ -59,3 +59,9 @@ describe('where', function() {
 
   });
 });
+
+describe('every', function() {
+  it('Returns true if all of the values in the list pass the iterator truth test. Delegates to the native method every, if present', function () {
+    expect(func.every([true, 1, null, 'yes'], function (val) { return val == true; })).toBeFalsy();
+  });
+});

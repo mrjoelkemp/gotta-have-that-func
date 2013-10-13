@@ -88,5 +88,15 @@
     });
   };
 
+  func.every = function (list, iterator) {
+    var allPassed = true;
+
+    list.forEach(function (val) {
+      allPassed = allPassed && iterator(val);
+    });
+
+    return allPassed;
+  };
+
 
 })();
