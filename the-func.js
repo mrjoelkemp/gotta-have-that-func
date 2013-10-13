@@ -98,5 +98,15 @@
     return allPassed;
   };
 
+  func.some = function (list, iterator) {
+    var onePassed = false;
+
+    list.forEach(function (val) {
+      onePassed = onePassed || iterator(val);
+    });
+
+    return onePassed;
+  };
+
 
 })();
