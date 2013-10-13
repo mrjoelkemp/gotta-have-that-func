@@ -33,3 +33,29 @@ describe('find', function() {
     expect(func.find([1, 2, 3, 4, 5, 6], function(num){ return num % 2 === 0; })).toBe(2);
   });
 });
+
+describe('where', function() {
+  var listOfPlays = [
+    {title: 'Cymbeline', author: 'Shakespeare', year: 1611},
+    {title: 'The Tempest', author: 'Shakespeare', year: 1611},
+    {title: 'Balls', author: 'Suckah', year: 1610},
+    {title: 'FOO', author: 'Shakespeare', year: 1611}
+  ];
+
+  var list = [{a: 1, b: 2}, {a: 2, b: 2}, {a: 1, b: 3}, {a: 1, b: 4}];
+   it('Looks through each value in the list, returning an array of all the values that contain all of the key-value pairs listed in properties.', function () {
+    expect(listOfPlays, {author: 'Shakespeare', year: 1611});
+
+       var result = func.where(list, {a: 1});
+
+    expect(result.length).toBe(3);
+    expect(result[result.length - 1].b).toBe(4);
+    result = func.where(list, {b: 2});
+    expect(result.length).toBe(2);
+    expect(result[0].a).toBe(1);
+
+    result = func.where(list, {a: 1}, false);
+    expect(result.length).toBe(3);
+
+  });
+});

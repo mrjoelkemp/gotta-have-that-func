@@ -73,5 +73,20 @@
     return result;
   };
 
+  func.where = function (list, properties) {
+    var keys = Object.keys(properties);
+
+    // Return all objects that have the matching properties with matching values
+    return list.filter(function (obj) {
+      var allMatched = true;
+
+      keys.forEach(function (key) {
+        allMatched = allMatched && obj[key] === properties[key];
+      });
+
+      return allMatched;
+    });
+  };
+
 
 })();
