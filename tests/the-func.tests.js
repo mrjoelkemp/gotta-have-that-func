@@ -72,5 +72,13 @@ describe('some', function() {
   });
 });
 
+describe('compose', function() {
+  it('Returns the composition of a list of functions, where each function consumes the return value of the function that follows. In math terms, composing the functions f(), g(), and h() produces f(g(h())).', function () {
+    var greet    = function(name){ return 'hi: ' + name; };
+    var exclaim  = function(statement){ return statement.toUpperCase() + '!'; };
+    var welcome = func.compose(greet, exclaim);
+    expect(welcome('moe')).toBe('hi: MOE!');
+  });
+});
 
 

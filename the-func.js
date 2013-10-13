@@ -108,5 +108,22 @@
     return onePassed;
   };
 
+  func.compose = function () {
+    var args = arguments;
+
+    return function () {
+      var result = args[args.length-1].apply(this, arguments),
+          f, i;
+
+      if (args.length > 1) {
+        for (i = args.length - 2; i >= 0; i--) {
+          f = args[i];
+          result = f(result);
+        }
+      }
+
+      return result;
+    };
+  };
 
 })();
